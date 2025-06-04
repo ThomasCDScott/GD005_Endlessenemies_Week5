@@ -27,11 +27,11 @@ public class SpawnManager : MonoBehaviour
         return spawnPosition;
     }
 
-   public void damage(int damageDealt)
+    public void damage(int damageDealt)
     {
         //health -= damageDealt;
     }
-
+   
 }
 
 
