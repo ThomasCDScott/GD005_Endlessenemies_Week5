@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334314812708720168, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334314813405729787, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalScale.x
@@ -704,6 +704,7 @@ MonoBehaviour:
   hasPowerUp: 0
   powerupStrength: 15
   PowerupIndicator: {fileID: 440093451}
+  lives: 3
 --- !u!1001 &888638659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -758,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334314812708720168, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334314813405729787, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalScale.x
@@ -821,7 +822,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4334314812708720166, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.984
+      value: 0.98399997
       objectReference: {fileID: 0}
     - target: {fileID: 4334314812708720166, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalPosition.y
@@ -865,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334314812708720168, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334314813405729787, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalScale.x
@@ -1312,6 +1313,7 @@ MonoBehaviour:
   - {fileID: 1219800187118980936, guid: 50f67a3fbc080bf4c9edff8a5bd186ac, type: 3}
   - {fileID: 2294944939805202802, guid: 6c719260d26cf2249b3c69a5e7bb1920, type: 3}
   - {fileID: 4339790014552067307, guid: 0b4ea242cef9ed441b22b82d743c40c6, type: 3}
+  waveNumber: 0
 --- !u!4 &1729370917
 Transform:
   m_ObjectHideFlags: 0
@@ -1381,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334314812708720168, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334314813405729787, guid: edccbf15fadd9704cb7a2020a492b120, type: 3}
       propertyPath: m_LocalScale.x

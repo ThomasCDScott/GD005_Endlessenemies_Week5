@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool hasPowerUp;
     public float powerupStrength = 15.0f;
     public GameObject PowerupIndicator;
+    private Vector3 startPosition;
+    public int lives = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +31,18 @@ public class PlayerController : MonoBehaviour
 
         PowerupIndicator.SetActive(hasPowerUp);
         PowerupIndicator.transform.position = transform.position;
+
+        if(transform.position.y <-3)
+        {
+            transform.position = startPosition;
+            rb.linearVelocity = Vector3.zero;
+            lives--;
+        }
+
+        if (lives<= 0)
+        {
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +53,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerupCountdownRoutine());
             Destroy(other.gameObject);
 
+        }
+
+        if (other.CompareTag("Potion"))
+        {
+            Destroy(other.gameObject);
+            lives++;
         }
     }
 

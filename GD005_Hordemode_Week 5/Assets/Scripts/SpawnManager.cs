@@ -3,18 +3,24 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemies;
+    public int waveNumber;
+    int enemyCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SpawnEnemyWave(waveNumber);
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        enemyCount = FindObjectsByType <EnemyController> (FindObjectsSortMode.None).Length;
+        if(enemyCount == 0)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], randomSpawnPosition(0), Quaternion.identity);
+            waveNumber++;
+            SpawnEnemyWave(waveNumber);
         }
     }
 
@@ -27,11 +33,18 @@ public class SpawnManager : MonoBehaviour
         return spawnPosition;
     }
 
-    public void damage(int damageDealt)
+   void SpawnPowerUp()
     {
-        //health -= damageDealt;
+      
     }
-   
+
+    void SpawnEnemyWave (int enemiestoSpawn)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemies[Random.Range(0, enemies.Length)], randomSpawnPosition(0), Quaternion.identity);
+        }
+    }
 }
 
 
