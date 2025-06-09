@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
         if (transform.position.y < -3)
         {
-            Destroy(GameObject);
+            Destroy(gameObject);
         }
     }
 }

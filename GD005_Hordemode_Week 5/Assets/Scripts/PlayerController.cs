@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public GameObject PowerupIndicator;
     private Vector3 startPosition;
     public int lives = 3;
+    public bool hasLongsword;
+    public GameObject LongswordIndicator;
+    public GameManger gameManager;
+    private bool isDead;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +36,8 @@ public class PlayerController : MonoBehaviour
         PowerupIndicator.SetActive(hasPowerUp);
         PowerupIndicator.transform.position = transform.position;
 
+        
+
         if(transform.position.y <-3)
         {
             transform.position = startPosition;
@@ -39,8 +45,10 @@ public class PlayerController : MonoBehaviour
             lives--;
         }
 
-        if (lives<= 0)
+        if (lives<= 0 && !isDead)
         {
+            isDead = true;
+            gameManager.gameOver();
 
         }
     }
@@ -60,6 +68,14 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             lives++;
         }
+        
+        if(other.CompareTag("Longsword"))
+        {
+            hasPowerUp = true;
+            StartCoroutine(PowerupCountdownRoutine());
+            Destroy(other.gameObject);
+
+        }
     }
 
 
@@ -71,7 +87,16 @@ public class PlayerController : MonoBehaviour
             Vector3 awayFromPlayer = (collision.transform.position - transform.position.normalized);
             enemyRb.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
 
-            Debug.Log("The player has collided with" + collision.gameObject.name);
+            Debug.Log("The player has collided with" + collision.gameObject.name + "with powerup set to" + hasPowerUp);
+        }
+
+        if(collision.gameObject.CompareTag("Enemies") && hasLongsword)
+        {
+            Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
+            Destroy(gameObject);
+
+
+            Debug.Log("The Player has slashed" + collision.gameObject.name + "with sword" + hasLongsword);
         }
     }
 
